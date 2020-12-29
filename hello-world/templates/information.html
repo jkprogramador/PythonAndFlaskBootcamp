@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Information{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h1>{{ name }}</h1>
+        {% if letters %}
+        <ol>
+            {% for letter in letters %}
+            <li>{{ letter }}</li>
+            {% endfor %}
+        </ol>
+        {% endif %}
+        <h2>{{ pup_dict["pup_name"] }}</h2>
+    </div>
+</div>
+{% endblock %}
