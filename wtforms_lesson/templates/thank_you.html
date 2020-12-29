@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WTForms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            <h1>Here is the info you gave us?</h1>
+            <ul>
+                <li>Breed: {{ session["breed"] }}</li>
+                <li>Neutered: {{ session["neutered"] }}</li>
+                <li>Mood: {{ session["mood"] }}</li>
+                <li>Food choice: {{ session["food_choice"] }}</li>
+                <li>Feedback: {{ session["feedback"] }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
