@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Username Form{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% if errors %}
+{% for error in errors %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endfor %}
+{% endif %}
+<div class="row">
+    <div class="col">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="username">Username: </label>
+                <input class="form-control" type="text" id="username" name="username">
+            </div>
+            <input type="submit" value="Check" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+{% endblock %}
