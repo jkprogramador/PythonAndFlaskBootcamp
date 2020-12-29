@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -25,12 +25,17 @@ def convert_to_puppy_latin(name: str) -> str:
 
 @app.route("/")
 def index():
-    return "<h1>Welcome! Go to /puppy_latin/name to see your puppy latin name!</h1>"
+    return render_template("index.html")
 
 
 @app.route("/information")
 def info():
-    return "<h1>Puppies are cute!</h1>"
+    name = "Jack"
+    letters = list(name)
+    pup_dict = {"pup_name": "Zezinho"}
+
+    return render_template("information.html", name=name, letters=letters,
+                           pup_dict=pup_dict)
 
 
 @app.route("/puppy/<name>")
@@ -42,7 +47,7 @@ def puppy(name: str):
 def puppy_latin(name: str):
     puppy_latin_name = convert_to_puppy_latin(name)
 
-    return f"<h1>Hi {name}! Your puppy latin name is {puppy_latin_name}</h1>"
+    return f"<h1>Hi {name.strip()}! Your puppy latin name is {puppy_latin_name}</h1>"
 
 
 if "__main__" == __name__:
