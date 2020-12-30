@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add an owner to the puppy!</h1>
+
+<form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label }}
+        {{ form.name(class_="form-control") }}
+        {% if form.name.errors %}
+        {% for error in form.name.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.puppy_id.label }}
+        {{ form.puppy_id(class_="form-control") }}
+        {% if form.puppy_id.errors %}
+        {% for error in form.puppy_id.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    {{ form.submit(class_="btn btn-primary") }}
+</form>
+{% endblock %}

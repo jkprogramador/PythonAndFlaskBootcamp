@@ -19,3 +19,14 @@ class DeletePuppyForm(FlaskForm):
     id = IntegerField(label="ID number of puppy", validators=[DataRequired(
         message="Please enter the id of the puppy to be removed.")])
     submit = SubmitField(label="Remove puppy")
+
+
+class AddOwnerForm(FlaskForm):
+    """
+    Form for adding an owner.
+    """
+    name = StringField(label="Name of the owner", validators=[
+        DataRequired(message="Please enter the name of the owner.")])
+    puppy_id = IntegerField(label="ID of the puppy", validators=[
+        DataRequired(message="Please enter the ID of the puppy.")])
+    submit = SubmitField(label="Add owner")
