@@ -21,16 +21,16 @@
                 <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('add_puppy') }}">Add Puppy</a>
+                <a class="nav-link" href="{{ url_for('puppies.add') }}">Add Puppy</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('list_puppies') }}">List Puppies</a>
+                <a class="nav-link" href="{{ url_for('puppies.list') }}">List Puppies</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('delete_puppy') }}">Delete Puppy</a>
+                <a class="nav-link" href="{{ url_for('puppies.delete') }}">Delete Puppy</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('add_owner') }}">Add Owner</a>
+                <a class="nav-link" href="{{ url_for('owners.add') }}">Add Owner</a>
             </li>
         </ul>
     </div>
