@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Did a puppy get adopted?</h1>
+<p>If so, please fill out their id to remove from the database.</p>
+
+<form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.id.label }}
+        {{ form.id(class_="form-control") }}
+        {% if form.id.errors %}
+        {% for error in form.id.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    {{ form.submit(class_="btn btn-danger") }}
+</form>
+{% endblock %}
