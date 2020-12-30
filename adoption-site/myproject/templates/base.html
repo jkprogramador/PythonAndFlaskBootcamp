@@ -20,11 +20,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
+            {% if current_user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('puppies.add') }}">Add Puppy</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('puppies.list') }}">List Puppies</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('puppies.delete') }}">Delete Puppy</a>
@@ -32,9 +30,33 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('owners.add') }}">Add Owner</a>
             </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('puppies.list') }}">List Puppies</a>
+            </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
+{% for message in get_flashed_messages() %}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
 <div class="container-fluid">
     <div class="row">
         <div class="col">
