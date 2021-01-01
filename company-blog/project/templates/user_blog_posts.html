@@ -17,7 +17,7 @@
     }}</a>
 </p>
 <p class="text-muted">
-    Published on {{ post.date.strftime("%Y-%m-%d") }}
+    Published on {{ moment(post.date).format("LLL") }}
 </p>
 <p>
     {{ post.text }}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="pt-BR" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -68,5 +68,7 @@
 <script src="{{ url_for('static', filename='scripts/vendor/jquery.slim.min.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/vendor/popper.min.js') }}"></script>
+{{ moment.include_moment(local_js=url_for("static", filename="scripts/vendor/moment-with-locales.min.js")) }}
+{{ moment.locale("pt-BR") }}
 </body>
 </html>
